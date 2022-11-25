@@ -1,0 +1,443 @@
+.btn_box {
+  position: relative;
+  --main_color: #f4cf47;
+  --base_color: #000;
+  --sub_color1: #f4e19c;
+
+  width: 280px;
+  height: 80px;
+  background: var(--main_color);
+  border: solid 3px #000;
+  border-radius: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  position: relative;
+  margin-top: 50px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 20px;
+
+    width: 24px;
+    height: 24px;
+
+    background-color: var(--base_color);
+    clip-path: path(
+      'M24,12.02c0-1.09-.75-1.71-.81-1.77L11.17,.45c-.91-.74-2.21-.56-2.91,.42-.69,.97-.52,2.37,.39,3.11l7.12,5.81-13.7-.02h0C.93,9.77,0,10.76,0,11.99c0,1.23,.93,2.22,2.07,2.22l13.7,.02-7.13,5.78c-.91,.74-1.09,2.13-.4,3.11,.41,.58,1.03,.88,1.65,.88,.44,0,.88-.15,1.25-.45l12.04-9.76c.07-.06,.82-.67,.82-1.77Z'
+    );
+
+    transition: all 0.2s ease;
+  }
+
+  .btn {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    overflow: hidden;
+    border-radius: 40px;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+
+      width: 130px;
+      height: 38px;
+
+      background: var(--sub_color1);
+      clip-path: path(
+        'M13.77,37.35L.25,16.6c-.87-1.33,.69-2.91,2-2.02l12.67,8.59c.81,.55,1.91,.14,2.18-.81l2.62-9.33c.39-1.4,2.34-1.42,2.76-.02l3.6,11.99c.33,1.11,1.74,1.4,2.47,.52L49.38,.52c.87-1.04,2.53-.42,2.53,.95V23.7c0,1.13,1.2,1.83,2.16,1.26l12.75-7.51c.85-.5,1.94,0,2.13,.98l1.5,7.6c.2,1.03,1.37,1.51,2.22,.92l17.74-12.3c1.09-.75,2.52,.25,2.21,1.55l-2.44,10.2c-.26,1.09,.74,2.06,1.8,1.75l30.8-9.04c1.37-.4,2.42,1.26,1.49,2.36l-9.07,10.66c-.83,.98-.1,2.49,1.17,2.42l12.12-.68c1.6-.09,2.12,2.15,.65,2.8l-2.73,1.21c-.18,.08-.38,.12-.58,.12H14.97c-.48,0-.93-.25-1.2-.65Z'
+      );
+      transition: all 0.5s ease;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+      transform: rotateY(180deg); // 旋转180度
+    }
+  }
+
+  .text {
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: var(--base_color);
+    transition: all 0.3s ease;
+  }
+}
+
+.btn_box:hover .text {
+  letter-spacing: 6px;
+}
+
+.btn_box:hover::before {
+  right: 14px;
+}
+
+.btn_box:hover .btn::after {
+  transform: rotateY(180deg);
+  right: -10px;
+}
+
+.btn_box:hover .btn::before {
+  left: -10px;
+}
+
+.bird_box {
+  position: absolute;
+  top: -54px;
+  left: 50px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  width: 180px;
+  height: 56px;
+
+  --border_radius1: 60px 60px 40px 40px / 48px 48px 30px 30px;
+  --border_radius2: 8px 8px 8px 8px / 8px 8px 2px 2px;
+  --border_radius3: 40px 40px 40px 40px / 48px 48px 30px 30px;
+  --border_radius4: 70px 70px 40px 40px / 48px 48px 30px 30px;
+  --sub_color2: #ff8108;
+
+  .bird {
+    width: 56px;
+    height: 36px;
+    box-sizing: border-box;
+    border: solid 3px #000;
+    background: var(--main_color);
+    border-radius: var(--border_radius1);
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: -12px;
+      width: 12px;
+      height: 12px;
+      background: #000;
+      clip-path: path(
+        'M10.23,3.32c-3.54,.63-5.72,2.51-7.02,4.23-.33-1.58-.34-3.54,.93-5.12,.52-.65,.41-1.59-.24-2.11C3.24-.19,2.29-.08,1.77,.57c-3.82,4.77-.31,11.11-.13,11.42,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0-.01-.02,2.49,.04,2.52,0,.1-.14,1.54-4.82,6.59-5.71,.82-.14,1.37-.92,1.22-1.74s-.94-1.36-1.75-1.21Z'
+      );
+    }
+
+    .bird__face {
+      position: absolute;
+      top: 15px;
+      width: 12px;
+      height: 6px;
+      border-radius: var(--border_radius2);
+      background: var(--sub_color2);
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+
+        width: 8px;
+        height: 2px;
+
+        border-radius: 4px;
+        background: #000;
+      }
+
+      &::before {
+        left: -5px;
+      }
+
+      &::after {
+        right: -5px;
+      }
+    }
+  }
+}
+
+.btn_box:hover .wakeup {
+  animation: wakeup 0.2s ease;
+  animation-fill-mode: forwards; //设置 animation-fill-mode 为 forwards 就是停留在最后一帧的意思：
+}
+
+@keyframes wakeup {
+  0% {
+    height: 32px;
+    border-radius: var(--border_radius2);
+  }
+
+  100% {
+    height: 56px;
+    border-radius: var(--border_radius3);
+  }
+}
+
+.btn_box:hover .wakeup .bird__face::before,
+.btn_box:hover .wakeup .bird__face::after {
+  width: 6px;
+  height: 6px;
+}
+
+.btn_box:hover .wakeup .bird__face::before,
+.btn_box:hover .wakeup .bird__face::after {
+  animation: eye 5s linear infinite; // 5S匀速执行，无限执行
+}
+
+@keyframes eye {
+  0% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  30% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  32% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+
+  34% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  70% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  72% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+
+  74% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  76% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+
+  78% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  100% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+}
+
+.btn_box:hover .wakeup:nth-child(2) .bird__face::before,
+.btn_box:hover .wakeup:nth-child(2) .bird__face::after {
+  animation: eye_2 5s linear infinite;
+}
+
+@keyframes eye_2 {
+  0% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  10% {
+    transform: translateX(0);
+  }
+
+  12% {
+    transform: translateX(3px);
+  }
+
+  20% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  22% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+
+  24% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  25% {
+    transform: translateX(3px);
+  }
+
+  27% {
+    transform: translateX(0);
+  }
+
+  74% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+    transform: translateX(0);
+  }
+
+  76% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+    transform: translateX(3px);
+  }
+
+  78% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  80% {
+    top: -4px;
+    width: 8px;
+    height: 2px;
+  }
+
+  82% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+  }
+
+  85% {
+    transform: translateX(3px);
+  }
+
+  87% {
+    transform: translateX(0);
+  }
+
+  100% {
+    top: -6px;
+    width: 6px;
+    height: 6px;
+    transform: translateX(0);
+  }
+}
+
+.bird {
+  animation: sleep 1s ease infinite alternate; // animation-direction: alternate 的效果就是正向、反向、正向、反向这样循环。
+}
+
+@keyframes sleep {
+  0% {
+    height: 36px;
+    border-radius: var(--border_radius1);
+  }
+
+  100% {
+    height: 32px;
+    border-radius: var(--border_radius4);
+  }
+}
+
+// ------------- 分割线 ------------------
+.heart-box {
+  width: 100%;
+  height: 500px;
+  background: #ffffff;
+  text-align: center;
+  position: relative;
+  display: flex;
+
+  animation-name: backdiv;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.heart {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background: pink;
+  opacity: 1;
+  transform: rotate(45deg);
+  animation-name: change;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.heart::before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: pink;
+  opacity: 1;
+  position: absolute;
+  transform: translateX(-30px);
+}
+
+.heart::after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  opacity: 1;
+  background: pink;
+  position: absolute;
+  transform: translate(-15px, -15px);
+}
+
+@keyframes change {
+  0% {
+    transform: rotate(45deg) scale(0.5);
+  }
+
+  50% {
+    transform: rotate(45deg) scale(0.8);
+  }
+
+  100% {
+    transform: rotate(45deg) scale(0.5);
+  }
+}
+
+@keyframes backdiv {
+  50% {
+    background: #ffe6f2;
+  }
+}
