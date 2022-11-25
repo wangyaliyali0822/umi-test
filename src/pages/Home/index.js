@@ -168,6 +168,16 @@ export default function IndexPage() {
 
     // 渐变
     // 线性渐变：createLinearGradient(x1, y1, x2, y2) 起点坐标 终点坐标
+    // 添加渐变的颜色：gradient.addColorStop(offset, color) offset是颜色的偏移值 0-1
+    // 代码：
+    // 创建渐变
+    const gradient1 = ctx.createLinearGradient(10, 400, 210, 600);
+    gradient1.addColorStop(0, '#0f0');
+    gradient1.addColorStop(1, '#f00');
+    ctx.globalAlpha = 1;
+    ctx.beginPath();
+    ctx.fillStyle = gradient1;
+    ctx.fillRect(10, 400, 200, 200);
     // 径向渐变：
   }, []);
 
